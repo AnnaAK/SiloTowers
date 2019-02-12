@@ -1,44 +1,20 @@
-<mat-grid-list [cols]="8">
-  <mat-grid-tile *ngFor="let indicator of indicators">
-
-    <div class="tower-container">
-      <p class="tower-title">
-        {{indicator.title + indicator.id}}
-      </p>
-      <div class="tower-percent">
-
-      </div>
-
-      <svg width="210" height="485">
-        <rect x="70" y="2" width="70" height="5" [ngStyle]="{'fill': indicator.value >= indicator.minValue &&
-       indicator.value <= indicator.maxValue ? '#158E41' : '#DD342C'}" />
-        <rect x="5" y="45" width="200" height="10" style="fill:#B3B6B7" />
-        <rect x="20" y="55" width="170" height="400" style="fill:#D0D3D4;stroke-width:2;stroke:#B3B6B7"/>
-        <rect x="5" y="455" width="200" height="10" style="fill:#B3B6B7" />
-      </svg>
-
-      <p class="mass-label">Масса карналита</p>
-      <div class="mass-value"><span>1256</span></div>
-    </div>
-
-  </mat-grid-tile>
-</mat-grid-list>
-<!--<div class="tower-container">
+<div class="tower-container">
   <p class="tower-title">
-    Масса карналлита в башне №1
+    {{indicator.title + indicator.id}}
   </p>
   <div class="tower-percent">
-    <div><span>100%</span></div>
+    <div>{{percent}}%</div>
   </div>
 
   <svg width="210" height="485">
-    <rect x="70" y="2" width="70" height="5" [ngStyle]="{'fill':'#158E41'}" />
+    <rect x="70" y="2" width="70" height="5" [ngStyle]="{'fill': indicator.value >= indicator.minValue &&
+       indicator.value <= indicator.maxValue ? '#158E41' : '#DD342C'}" />
     <rect x="5" y="45" width="200" height="10" style="fill:#B3B6B7" />
     <rect x="20" y="55" width="170" height="400" style="fill:#D0D3D4;stroke-width:2;stroke:#B3B6B7"/>
     <rect x="5" y="455" width="200" height="10" style="fill:#B3B6B7" />
   </svg>
 
   <p class="mass-label">Масса карналита</p>
-  <div class="mass-value"><span>1256</span></div>
+  <div class="mass-value"><span>{{carnmass}}</span></div>
 </div>
--->
+

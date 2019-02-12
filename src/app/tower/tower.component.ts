@@ -1,8 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 import { Indicator } from '../indicator';
-import { IndicatorService } from '../indicator.service';
-import {CARNSMASS} from '../mock-carnallite-mass';
 
 @Component({
   selector: 'app-tower',
@@ -10,18 +8,24 @@ import {CARNSMASS} from '../mock-carnallite-mass';
   styleUrls: ['./tower.component.css']
 })
 export class TowerComponent implements OnInit {
-  indicators: Indicator[];
+  @Input()
   indicator: Indicator;
-  carnmass = Math.floor(Math.random() * 2000) + 100;
 
-  constructor(private indicatorService: IndicatorService) { }
+  carnmass = Math.floor(Math.random() * 2000) + 100;
+  percent: number;
+
+  constructor() { }
 
   ngOnInit() {
-    this.getIndicators();
+    this.towerPercent();
   }
 
-  getIndicators(): void {
-    this.indicatorService.getIndicators()
-      .subscribe(indicators => this.indicators = indicators);
+  towerPercent(): void {
+    if (this.indicator.value - this.indicator.minValue >= 0) {
+      this.percent = Math.round((this.indicator.value - this.indicator.minValue) /
+        (this.indicator.maxValue - this.indicator.minValue) * 100);
+    } else {
+      this.percent = 0;
+    }
   }
 }

@@ -1,4 +1,7 @@
-body {
-  font-family: 'Open Sans', sans-serif;
-  background-color: #605F5F;
+.all-towers{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
 }

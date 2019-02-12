@@ -1,4 +1,5 @@
 <h1>{{title}}</h1>
-<app-tower></app-tower>
-
+<div class="all-towers">
+<app-tower *ngFor ="let indicator of indicators" [indicator]="indicator"></app-tower>
+</div>
 
