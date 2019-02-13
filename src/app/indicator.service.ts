@@ -1,11 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { Indicator } from './indicator';
-import { MessageService } from './message.service';
-
 
 @Injectable({
   providedIn: 'root'
@@ -34,18 +32,5 @@ export class IndicatorService {
     };
   }
 
-  getIndicator(id: number): Observable<Indicator> {
-    const url = `${this.indicatorsUrl}/${id}`;
-    return this.http.get<Indicator>(url).pipe(
-      tap(_ => console.log(`indicator id=${id}`)),
-      catchError(this.handleError<Indicator>(`getIndicator id=${id}`))
-    );
-  }
-
-  private log(message: string) {
-    this.messageService.add(`HeroService: ${message}`);
-  }
-
-  constructor( private http: HttpClient,
-               private messageService: MessageService) { }
+  constructor( private http: HttpClient) { }
 }

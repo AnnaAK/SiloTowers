@@ -9,9 +9,7 @@ import { IndicatorService } from './indicator.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'Силосные башни';
-
-  indicators: Indicator[];
+  public indicators: Indicator[];
 
   constructor(private indicatorService: IndicatorService) { }
 
@@ -19,7 +17,7 @@ export class AppComponent implements OnInit {
     this.getIndicators();
   }
 
-  getIndicators(): void {
+  private getIndicators(): void {
     this.indicatorService.getIndicators()
       .subscribe(indicators => this.indicators = indicators);
   }
