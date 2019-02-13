@@ -53,7 +53,7 @@ export class InMemoryDataService {
       {
         id: '7',
         title: 'Уровень карналита в силосной башне №',
-        value: -1,
+        value: 595,
         minValue: 0,
         maxValue: 1000
       },
